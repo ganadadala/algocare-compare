@@ -115,6 +115,11 @@
   .table-wrap::-webkit-scrollbar-thumb:hover{background:var(--accent-2);}
   /* 넓은 성분표는 스크롤바를 항상 노출해 가로 스크롤 가능함을 알림 */
   .table-wrap:has(table.wide){overflow-x:scroll;}
+  /* 넓은 표 오른쪽 끝 페이드 힌트: 옆으로 더 있음을 시각적으로 알림 */
+  .scroll-hint{position:relative;}
+  .scroll-hint::after{content:"";position:absolute;top:1px;right:1px;bottom:13px;width:46px;
+    background:linear-gradient(to left,var(--card) 12%,rgba(255,255,255,0));
+    border-radius:0 14px 14px 0;pointer-events:none;}
   table{border-collapse:collapse;width:100%;font-size:.8rem;table-layout:fixed;min-width:640px;}
   table.wide{min-width:1000px;}
   table.price-table,table.slim{min-width:0;}
@@ -215,6 +220,7 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
+    <div class="scroll-hint">
     <div class="table-wrap">
       <table class="wide">
         <colgroup>
@@ -255,6 +261,7 @@
           <tr><td class="left">요오드</td><td>150 μg</td><td class="algo-col">90 μg</td><td class="algo-col">60%</td><td class="algo-col">225 μg</td><td class="algo-col">150%</td><td class="left">IodiTech Inc. / 미국</td><td>150 μg</td><td>100%</td><td class="left">비공개</td></tr>
         </tbody>
       </table>
+    </div>
     </div>
   </section>
 
@@ -309,6 +316,7 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
+    <div class="scroll-hint">
     <div class="table-wrap">
       <table class="wide">
         <colgroup>
@@ -331,6 +339,7 @@
           <tr><td class="left">DHA</td><td>기준치 미설정</td><td class="algo-col">360 mg</td><td class="algo-col">720 mg</td><td class="left">1캡슐당 DHA 120mg로 맞춤 용이</td><td>400 mg</td><td class="left">세부 함량 공개</td><td>표시 없음</td><td class="left">비공개</td></tr>
         </tbody>
       </table>
+    </div>
     </div>
   </section>
 
