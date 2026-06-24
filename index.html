@@ -107,7 +107,14 @@
   }
   .tag.compare{background:#eaeef3;color:#647488;}
   .tag.algo{background:var(--accent);color:#fff;}
-  .table-wrap{border:1px solid var(--line);border-radius:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0 6px;}
+  .table-wrap{border:1px solid var(--line);border-radius:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0 6px;
+    scrollbar-width:thin;scrollbar-color:#b3cce0 #eef3f8;}
+  .table-wrap::-webkit-scrollbar{height:10px;}
+  .table-wrap::-webkit-scrollbar-track{background:#eef3f8;}
+  .table-wrap::-webkit-scrollbar-thumb{background:#b3cce0;border-radius:8px;border:2px solid #eef3f8;}
+  .table-wrap::-webkit-scrollbar-thumb:hover{background:var(--accent-2);}
+  /* 넓은 성분표는 스크롤바를 항상 노출해 가로 스크롤 가능함을 알림 */
+  .table-wrap:has(table.wide){overflow-x:scroll;}
   table{border-collapse:collapse;width:100%;font-size:.8rem;table-layout:fixed;min-width:640px;}
   table.wide{min-width:1000px;}
   table.price-table,table.slim{min-width:0;}
