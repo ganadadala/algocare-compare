@@ -3,120 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>알고케어 제품 비교</title>
+<title>Algocare Nutrition</title>
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root{
-    --bg:#f5f7fa;
+    --bg:#f3f4f1;
     --card:#ffffff;
-    --ink:#1f2933;
-    --muted:#5b6b7b;
-    --line:#e3e8ee;
-    --brand:#0a7d6b;
-    --brand-soft:#e6f4f1;
-    --accent:#ff8a3d;
-    --shadow:0 2px 10px rgba(31,41,51,.06);
+    --ink:#1d1f1e;
+    --muted:#71746f;
+    --line:#e8e9e4;
+    --accent:#356859;
+    --accent-2:#4c8c77;
+    --accent-soft:#eef3f1;
+    --accent-line:#d7e3dd;
+    --hero-1:#20312b;
+    --hero-2:#2c4339;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 10px 30px rgba(20,30,25,.05);
+    --maxw:1240px;
   }
   *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
   body{
     margin:0;
-    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     background:var(--bg);
     color:var(--ink);
     line-height:1.6;
+    letter-spacing:-.01em;
     -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
   header.hero{
-    background:linear-gradient(135deg,#0a7d6b 0%,#0c9a83 100%);
+    background:linear-gradient(150deg,var(--hero-1),var(--hero-2));
     color:#fff;
-    padding:56px 20px 48px;
+    padding:72px 20px 60px;
     text-align:center;
   }
-  header.hero h1{margin:0 0 10px;font-size:2rem;letter-spacing:-.5px;}
-  header.hero p{margin:0;opacity:.92;font-size:1.02rem;}
-  .wrap{max-width:1100px;margin:0 auto;padding:32px 18px 80px;}
+  header.hero .kicker{
+    font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-2);opacity:.95;margin-bottom:16px;
+  }
+  header.hero h1{
+    margin:0 0 14px;font-size:2.6rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;
+  }
+  header.hero p{margin:0;opacity:.8;font-size:1rem;font-weight:300;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:34px 22px 90px;}
   nav.toc{
     background:var(--card);
-    border-radius:14px;
+    border:1px solid var(--line);
+    border-radius:16px;
     box-shadow:var(--shadow);
-    padding:18px 22px;
-    margin:-40px auto 40px;
-    max-width:1100px;
+    padding:14px 16px;
+    margin:-34px auto 44px;
+    max-width:var(--maxw);
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:8px;
     position:relative;
     z-index:2;
   }
   nav.toc a{
     text-decoration:none;
-    color:var(--brand);
-    background:var(--brand-soft);
-    padding:8px 14px;
+    color:var(--ink);
+    border:1px solid var(--line);
+    padding:8px 16px;
     border-radius:999px;
-    font-size:.9rem;
-    font-weight:600;
-    transition:.15s;
+    font-size:.88rem;
+    font-weight:500;
+    transition:.18s ease;
   }
-  nav.toc a:hover{background:var(--brand);color:#fff;}
+  nav.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
   section.product{
     background:var(--card);
-    border-radius:16px;
+    border:1px solid var(--line);
+    border-radius:18px;
     box-shadow:var(--shadow);
-    padding:30px 28px;
-    margin-bottom:34px;
-    scroll-margin-top:20px;
+    padding:34px 32px;
+    margin-bottom:30px;
+    scroll-margin-top:18px;
   }
   section.product > h2{
-    font-size:1.45rem;
-    margin:0 0 4px;
-    color:var(--brand);
-    letter-spacing:-.4px;
+    font-size:1.5rem;font-weight:700;margin:0 0 6px;letter-spacing:-.02em;
   }
-  .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px;}
+  section.product > h2 .num{color:var(--accent);font-weight:700;margin-right:10px;}
+  .sub{color:var(--muted);font-size:.92rem;margin-bottom:24px;}
   h3{
-    font-size:1.08rem;
-    margin:26px 0 10px;
-    padding-left:12px;
-    border-left:4px solid var(--accent);
+    font-size:1.02rem;font-weight:600;margin:28px 0 12px;
+    display:flex;align-items:center;gap:9px;
   }
+  h3::before{content:"";width:5px;height:16px;border-radius:3px;background:var(--accent);display:inline-block;}
   .block{
-    background:#fafbfc;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:16px 18px;
-    margin-bottom:14px;
+    background:#fbfbfa;border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;margin-bottom:12px;
   }
-  .block.brand{border-color:var(--brand);background:var(--brand-soft);}
-  .block h4{margin:0 0 8px;font-size:1rem;}
+  .block.brand{border-color:var(--accent-line);background:var(--accent-soft);}
+  .block h4{margin:0 0 10px;font-size:.98rem;font-weight:600;display:flex;align-items:center;}
   .block ul{margin:0;padding-left:18px;}
-  .block li{margin:4px 0;color:#374550;font-size:.94rem;}
+  .block li{margin:5px 0;color:#3a3d39;font-size:.92rem;}
   .tag{
-    display:inline-block;font-size:.72rem;font-weight:700;
-    padding:2px 9px;border-radius:6px;margin-right:6px;vertical-align:middle;
+    display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.02em;
+    padding:3px 10px;border-radius:6px;margin-right:8px;
   }
-  .tag.compare{background:#fde8d8;color:#b35a1a;}
-  .tag.algo{background:var(--brand);color:#fff;}
-  .table-scroll{border-radius:10px;border:1px solid var(--line);margin:14px 0 4px;}
-  table{border-collapse:collapse;width:100%;font-size:.82rem;table-layout:fixed;}
-  th,td{padding:8px 8px;text-align:center;border-bottom:1px solid var(--line);white-space:normal;word-break:keep-all;overflow-wrap:anywhere;}
-  thead th{background:#eef2f5;color:#33404c;font-weight:700;}
-  tbody tr:nth-child(even){background:#fafbfc;}
+  .tag.compare{background:#edeeea;color:#6b6e68;}
+  .tag.algo{background:var(--accent);color:#fff;}
+  .table-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0 4px;}
+  table{border-collapse:collapse;width:100%;font-size:.8rem;table-layout:fixed;}
+  th,td{
+    padding:9px 8px;text-align:center;border-bottom:1px solid var(--line);
+    white-space:normal;word-break:keep-all;overflow-wrap:anywhere;vertical-align:middle;
+  }
+  tr:last-child td{border-bottom:none;}
+  thead th{background:#f0f1ec;color:#3b3e39;font-weight:600;font-size:.76rem;line-height:1.35;}
+  tbody tr:nth-child(even){background:#fafbf9;}
   td.left,th.left{text-align:left;}
-  .algo-col{background:var(--brand-soft)!important;font-weight:600;color:#0a5d50;}
+  .algo-col{background:var(--accent-soft)!important;font-weight:600;color:#27513f;}
+  thead .algo-col{background:#e3ece8!important;color:#27513f;}
   .price-table td.left{font-weight:600;}
-  .highlight{color:var(--accent);font-weight:700;}
-  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:30px 20px;}
-  caption{caption-side:top;text-align:left;font-weight:700;color:var(--muted);font-size:.88rem;padding:6px 2px;}
-  @media(max-width:640px){
-    header.hero h1{font-size:1.5rem;}
-    section.product{padding:22px 16px;}
+  .highlight{color:#b15a3c;font-weight:700;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:34px 20px;}
+  @media(max-width:680px){
+    header.hero{padding:54px 18px 44px;}
+    header.hero h1{font-size:1.9rem;}
+    section.product{padding:24px 16px;}
+    table{font-size:.72rem;}
+    th,td{padding:7px 5px;}
+    thead th{font-size:.7rem;}
   }
 </style>
 </head>
 <body>
 <header class="hero">
-  <h1>알고케어 제품 비교</h1>
-  <p>주요 경쟁 제품 대비 성분 · 원료사 · 가격 비교</p>
+  <div class="kicker">Product Comparison</div>
+  <h1>Algocare Nutrition</h1>
+  <p>영양제 성분 · 원료사 · 가격 비교</p>
 </header>
 
 <nav class="toc">
@@ -131,7 +151,7 @@
 
   <!-- 1. 멀티미네랄비타민 -->
   <section class="product" id="multi">
-    <h2>1. 멀티미네랄 비타민</h2>
+    <h2><span class="num">01</span>멀티미네랄 비타민</h2>
     <div class="sub">알고케어 멀티미네랄비타민 vs 오쏘몰 이뮨</div>
 
     <h3>비교군 · 오쏘몰 이뮨</h3>
@@ -159,8 +179,9 @@
     </div>
 
     <h3>가격</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table class="price-table">
+        <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어 멀티미네랄비타민</th><th>오쏘몰 이뮨</th></tr></thead>
         <tbody>
           <tr><td class="left">30일 기준 가격</td><td class="algo-col">약 18,400원</td><td>115,000원</td></tr>
@@ -171,8 +192,9 @@
     </div>
 
     <h3>성분 수 비교</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
+        <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어</th><th>오쏘몰 이뮨</th></tr></thead>
         <tbody>
           <tr><td class="left">총 성분 수</td><td class="algo-col">22종</td><td>18종</td></tr>
@@ -183,37 +205,44 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
+        <colgroup>
+          <col style="width:8%"><col style="width:8%">
+          <col style="width:9%"><col style="width:6%">
+          <col style="width:9%"><col style="width:6%">
+          <col style="width:17%">
+          <col style="width:10%"><col style="width:6%"><col style="width:15%">
+        </colgroup>
         <thead><tr>
           <th class="left">성분</th><th>기준치</th>
-          <th class="algo-col">알고케어 권장량</th><th class="algo-col">권장 기준치%</th>
-          <th class="algo-col">알고케어 최대량</th><th class="algo-col">최대 기준치%</th>
-          <th class="left">알고케어 원료사/특징</th>
-          <th>오쏘몰 이뮨 함량</th><th>오쏘몰 기준치%</th><th>오쏘몰 원료사</th>
+          <th class="algo-col">알고 권장량</th><th class="algo-col">권장 기준%</th>
+          <th class="algo-col">알고 최대량</th><th class="algo-col">최대 기준%</th>
+          <th class="left">알고케어 원료사 / 특징</th>
+          <th>오쏘몰 함량</th><th>오쏘몰 기준%</th><th class="left">오쏘몰 원료사</th>
         </tr></thead>
         <tbody>
-          <tr><td class="left">비타민 B1</td><td>1.2 mg</td><td class="algo-col">12 mg</td><td class="algo-col">1,000%</td><td class="algo-col">30 mg</td><td class="algo-col">2,500%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>미포함</td><td>미포함</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 B2</td><td>1.4 mg</td><td class="algo-col">4.2 mg</td><td class="algo-col">300%</td><td class="algo-col">10.5 mg</td><td class="algo-col">750%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>미포함</td><td>미포함</td><td>비공개</td></tr>
-          <tr><td class="left">나이아신</td><td>15 mg NE</td><td class="algo-col">22.5 mg NE</td><td class="algo-col">150%</td><td class="algo-col">56.3 mg NE</td><td class="algo-col">375%</td><td class="left">Jubilant Ingrevia Limited / 인도</td><td>70 mg NE</td><td>467%</td><td>비공개</td></tr>
-          <tr><td class="left">판토텐산</td><td>5 mg</td><td class="algo-col">20 mg</td><td class="algo-col">400%</td><td class="algo-col">50 mg</td><td class="algo-col">1,000%</td><td class="left">DSM Nutritional Products GMBH / 영국</td><td>7 mg</td><td>140%</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 B6</td><td>1.5 mg</td><td class="algo-col">2.25 mg</td><td class="algo-col">150%</td><td class="algo-col">5.6 mg</td><td class="algo-col">375%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>23 mg</td><td>1,533%</td><td>비공개</td></tr>
-          <tr><td class="left">비오틴</td><td>30 μg</td><td class="algo-col">45 μg</td><td class="algo-col">150%</td><td class="algo-col">112.5 μg</td><td class="algo-col">375%</td><td class="left">빅솔 / 국내제조, 원산지 프랑스</td><td>170 μg</td><td>567%</td><td>비공개</td></tr>
-          <tr><td class="left">엽산</td><td>400 μg DFE</td><td class="algo-col">400 μg DFE</td><td class="algo-col">100%</td><td class="algo-col">1,000 μg DFE</td><td class="algo-col">250%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>1,360 μg DFE</td><td>340%</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 B12</td><td>2.4 μg</td><td class="algo-col">24 μg</td><td class="algo-col">1,000%</td><td class="algo-col">60 μg</td><td class="algo-col">2,500%</td><td class="left">빅솔 / 국내제조, 원산지 프랑스</td><td>표시 성분 아님</td><td>해당 없음</td><td>해당 없음</td></tr>
-          <tr><td class="left">비타민 C</td><td>100 mg</td><td class="algo-col">200 mg</td><td class="algo-col">200%</td><td class="algo-col">500 mg</td><td class="algo-col">500%</td><td class="left">DSM Nutritional Products GMBH / 미국, 중성 비타민C</td><td>1,000 mg</td><td>1,000%</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 D</td><td>10 μg / 400 IU</td><td class="algo-col">6 μg / 240 IU</td><td class="algo-col">60%</td><td class="algo-col">15 μg / 600 IU</td><td class="algo-col">150%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>미포함</td><td>미포함</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 A</td><td>700 μg RAE</td><td class="algo-col">280 μg RE</td><td class="algo-col">40%</td><td class="algo-col">700 μg RE</td><td class="algo-col">100%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>470 μg RAE + 베타카로틴 6 mg</td><td>67%</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 E</td><td>11 mg α-TE</td><td class="algo-col">4.4 mg α-TE</td><td class="algo-col">40%</td><td class="algo-col">11 mg α-TE</td><td class="algo-col">100%</td><td class="left">DSM Nutritional Products GMBH / 프랑스</td><td>150 mg α-TE</td><td>1,364%</td><td>비공개</td></tr>
-          <tr><td class="left">비타민 K</td><td>70 μg</td><td class="algo-col">K1+K2 28 μg</td><td class="algo-col">40%</td><td class="algo-col">K1+K2 70 μg</td><td class="algo-col">100%</td><td class="left">K1: DSM / K2: Gnosis S.P.A MenaQ7®</td><td>비타민 K 80 μg</td><td>114%</td><td>비공개</td></tr>
-          <tr><td class="left">아연</td><td>8.5 mg</td><td class="algo-col">8.5 mg</td><td class="algo-col">100%</td><td class="algo-col">21.3 mg</td><td class="algo-col">250%</td><td class="left">EverZinc Nederland B.V. + Jost Chemical Co</td><td>10 mg</td><td>118%</td><td>비공개</td></tr>
-          <tr><td class="left">셀레늄</td><td>55 μg</td><td class="algo-col">44 μg</td><td class="algo-col">80%</td><td class="algo-col">110 μg</td><td class="algo-col">200%</td><td class="left">Nutrisol LLC / 미국</td><td>50 μg</td><td>91%</td><td>비공개</td></tr>
-          <tr><td class="left">철</td><td>12 mg</td><td class="algo-col">6 mg</td><td class="algo-col">50%</td><td class="algo-col">15 mg</td><td class="algo-col">125%</td><td class="left">Novotech Nutraceuticals, Inc. / 미국</td><td>7.2 mg</td><td>60%</td><td>비공개</td></tr>
-          <tr><td class="left">구리</td><td>0.8 mg</td><td class="algo-col">0.64 mg</td><td class="algo-col">80%</td><td class="algo-col">1.6 mg</td><td class="algo-col">200%</td><td class="left">Jost Chemical Co / 미국</td><td>0.5 mg</td><td>63%</td><td>비공개</td></tr>
-          <tr><td class="left">망간</td><td>3 mg</td><td class="algo-col">2.4 mg</td><td class="algo-col">80%</td><td class="algo-col">6 mg</td><td class="algo-col">200%</td><td class="left">Jost Chemical Co / 미국</td><td>2.0 mg</td><td>67%</td><td>비공개</td></tr>
-          <tr><td class="left">크롬</td><td>30 μg</td><td class="algo-col">24 μg</td><td class="algo-col">80%</td><td class="algo-col">60 μg</td><td class="algo-col">200%</td><td class="left">Saluta Guse Parmitehas AS / 에스토니아</td><td>30 μg</td><td>100%</td><td>비공개</td></tr>
-          <tr><td class="left">몰리브덴</td><td>25 μg</td><td class="algo-col">20 μg</td><td class="algo-col">80%</td><td class="algo-col">50 μg</td><td class="algo-col">200%</td><td class="left">Saluta Guse Parmitehas AS / 에스토니아</td><td>65 μg</td><td>260%</td><td>비공개</td></tr>
-          <tr><td class="left">요오드</td><td>150 μg</td><td class="algo-col">90 μg</td><td class="algo-col">60%</td><td class="algo-col">225 μg</td><td class="algo-col">150%</td><td class="left">IodiTech Inc. / 미국</td><td>150 μg</td><td>100%</td><td>비공개</td></tr>
+          <tr><td class="left">비타민 B1</td><td>1.2 mg</td><td class="algo-col">12 mg</td><td class="algo-col">1,000%</td><td class="algo-col">30 mg</td><td class="algo-col">2,500%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>미포함</td><td>미포함</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 B2</td><td>1.4 mg</td><td class="algo-col">4.2 mg</td><td class="algo-col">300%</td><td class="algo-col">10.5 mg</td><td class="algo-col">750%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>미포함</td><td>미포함</td><td class="left">비공개</td></tr>
+          <tr><td class="left">나이아신</td><td>15 mg NE</td><td class="algo-col">22.5 mg NE</td><td class="algo-col">150%</td><td class="algo-col">56.3 mg NE</td><td class="algo-col">375%</td><td class="left">Jubilant Ingrevia Limited / 인도</td><td>70 mg NE</td><td>467%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">판토텐산</td><td>5 mg</td><td class="algo-col">20 mg</td><td class="algo-col">400%</td><td class="algo-col">50 mg</td><td class="algo-col">1,000%</td><td class="left">DSM Nutritional Products GMBH / 영국</td><td>7 mg</td><td>140%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 B6</td><td>1.5 mg</td><td class="algo-col">2.25 mg</td><td class="algo-col">150%</td><td class="algo-col">5.6 mg</td><td class="algo-col">375%</td><td class="left">DSM Nutritional Products GMBH / 독일</td><td>23 mg</td><td>1,533%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비오틴</td><td>30 μg</td><td class="algo-col">45 μg</td><td class="algo-col">150%</td><td class="algo-col">112.5 μg</td><td class="algo-col">375%</td><td class="left">빅솔 / 국내제조, 원산지 프랑스</td><td>170 μg</td><td>567%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">엽산</td><td>400 μg DFE</td><td class="algo-col">400 μg DFE</td><td class="algo-col">100%</td><td class="algo-col">1,000 μg DFE</td><td class="algo-col">250%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>1,360 μg DFE</td><td>340%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 B12</td><td>2.4 μg</td><td class="algo-col">24 μg</td><td class="algo-col">1,000%</td><td class="algo-col">60 μg</td><td class="algo-col">2,500%</td><td class="left">빅솔 / 국내제조, 원산지 프랑스</td><td>표시 성분 아님</td><td>해당 없음</td><td class="left">해당 없음</td></tr>
+          <tr><td class="left">비타민 C</td><td>100 mg</td><td class="algo-col">200 mg</td><td class="algo-col">200%</td><td class="algo-col">500 mg</td><td class="algo-col">500%</td><td class="left">DSM Nutritional Products GMBH / 미국, 중성 비타민C</td><td>1,000 mg</td><td>1,000%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 D</td><td>10 μg / 400 IU</td><td class="algo-col">6 μg / 240 IU</td><td class="algo-col">60%</td><td class="algo-col">15 μg / 600 IU</td><td class="algo-col">150%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>미포함</td><td>미포함</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 A</td><td>700 μg RAE</td><td class="algo-col">280 μg RE</td><td class="algo-col">40%</td><td class="algo-col">700 μg RE</td><td class="algo-col">100%</td><td class="left">DSM Nutritional Products AG / 스위스</td><td>470 μg RAE + 베타카로틴 6 mg</td><td>67%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 E</td><td>11 mg α-TE</td><td class="algo-col">4.4 mg α-TE</td><td class="algo-col">40%</td><td class="algo-col">11 mg α-TE</td><td class="algo-col">100%</td><td class="left">DSM Nutritional Products GMBH / 프랑스</td><td>150 mg α-TE</td><td>1,364%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">비타민 K</td><td>70 μg</td><td class="algo-col">K1+K2 28 μg</td><td class="algo-col">40%</td><td class="algo-col">K1+K2 70 μg</td><td class="algo-col">100%</td><td class="left">K1: DSM / K2: Gnosis S.P.A MenaQ7®</td><td>비타민 K 80 μg</td><td>114%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">아연</td><td>8.5 mg</td><td class="algo-col">8.5 mg</td><td class="algo-col">100%</td><td class="algo-col">21.3 mg</td><td class="algo-col">250%</td><td class="left">EverZinc Nederland B.V. + Jost Chemical Co</td><td>10 mg</td><td>118%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">셀레늄</td><td>55 μg</td><td class="algo-col">44 μg</td><td class="algo-col">80%</td><td class="algo-col">110 μg</td><td class="algo-col">200%</td><td class="left">Nutrisol LLC / 미국</td><td>50 μg</td><td>91%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">철</td><td>12 mg</td><td class="algo-col">6 mg</td><td class="algo-col">50%</td><td class="algo-col">15 mg</td><td class="algo-col">125%</td><td class="left">Novotech Nutraceuticals, Inc. / 미국</td><td>7.2 mg</td><td>60%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">구리</td><td>0.8 mg</td><td class="algo-col">0.64 mg</td><td class="algo-col">80%</td><td class="algo-col">1.6 mg</td><td class="algo-col">200%</td><td class="left">Jost Chemical Co / 미국</td><td>0.5 mg</td><td>63%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">망간</td><td>3 mg</td><td class="algo-col">2.4 mg</td><td class="algo-col">80%</td><td class="algo-col">6 mg</td><td class="algo-col">200%</td><td class="left">Jost Chemical Co / 미국</td><td>2.0 mg</td><td>67%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">크롬</td><td>30 μg</td><td class="algo-col">24 μg</td><td class="algo-col">80%</td><td class="algo-col">60 μg</td><td class="algo-col">200%</td><td class="left">Saluta Guse Parmitehas AS / 에스토니아</td><td>30 μg</td><td>100%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">몰리브덴</td><td>25 μg</td><td class="algo-col">20 μg</td><td class="algo-col">80%</td><td class="algo-col">50 μg</td><td class="algo-col">200%</td><td class="left">Saluta Guse Parmitehas AS / 에스토니아</td><td>65 μg</td><td>260%</td><td class="left">비공개</td></tr>
+          <tr><td class="left">요오드</td><td>150 μg</td><td class="algo-col">90 μg</td><td class="algo-col">60%</td><td class="algo-col">225 μg</td><td class="algo-col">150%</td><td class="left">IodiTech Inc. / 미국</td><td>150 μg</td><td>100%</td><td class="left">비공개</td></tr>
         </tbody>
       </table>
     </div>
@@ -221,7 +250,7 @@
 
   <!-- 2. 오메가3 -->
   <section class="product" id="omega">
-    <h2>2. 알고케어 오메가3</h2>
+    <h2><span class="num">02</span>오메가3</h2>
     <div class="sub">알고케어 장용성 초임계 rTG 오메가3 vs YDY 폴라 · 종근당건강 프로메가</div>
 
     <h3>비교군</h3>
@@ -256,8 +285,9 @@
     </div>
 
     <h3>가격</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table class="price-table">
+        <colgroup><col style="width:22%"><col style="width:28%"><col style="width:25%"><col style="width:25%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어 장용성 초임계 rTG</th><th>YDY 폴라</th><th>종근당건강 프로메가</th></tr></thead>
         <tbody>
           <tr><td class="left">30일 기준 가격</td><td class="algo-col">약 29,000원</td><td>28,000원</td><td>23,500원</td></tr>
@@ -269,14 +299,21 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
+        <colgroup>
+          <col style="width:11%"><col style="width:9%">
+          <col style="width:9%"><col style="width:9%">
+          <col style="width:19%">
+          <col style="width:8%"><col style="width:13%">
+          <col style="width:8%"><col style="width:14%">
+        </colgroup>
         <thead><tr>
           <th class="left">성분</th><th>기준치</th>
-          <th class="algo-col">알고케어 권장량</th><th class="algo-col">알고케어 최대량</th>
-          <th class="left">알고케어 원료사/특징</th>
-          <th>YDY 폴라 함량</th><th class="left">YDY 원료사/특징</th>
-          <th>종근당 프로메가 함량</th><th class="left">종근당 원료사/특징</th>
+          <th class="algo-col">알고 권장량</th><th class="algo-col">알고 최대량</th>
+          <th class="left">알고케어 원료사 / 특징</th>
+          <th>YDY 폴라 함량</th><th class="left">YDY 원료사 / 특징</th>
+          <th>종근당 함량</th><th class="left">종근당 원료사 / 특징</th>
         </tr></thead>
         <tbody>
           <tr><td class="left">EPA+DHA의 합</td><td>기준치 미설정</td><td class="algo-col">900 mg</td><td class="algo-col">1,800 mg</td><td class="left">Polaris Nutritional Lipids SA / 프랑스, 순도 80%, 초임계 rTG, 장용성 코팅</td><td>1,000 mg</td><td class="left">Polaris 원료 / 초임계 rTG, 순도 80%</td><td>600 mg</td><td class="left">원료사 비공개, 순도 60%</td></tr>
@@ -289,7 +326,7 @@
 
   <!-- 3. 프로바이오틱스 -->
   <section class="product" id="probiotics">
-    <h2>3. 알고케어 프로바이오틱스</h2>
+    <h2><span class="num">03</span>프로바이오틱스</h2>
     <div class="sub">알고케어 프로바이오틱스 vs 듀오락 골드 캡슐</div>
 
     <h3>비교군 · 듀오락 골드 캡슐</h3>
@@ -313,8 +350,9 @@
     </div>
 
     <h3>가격</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table class="price-table">
+        <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어 프로바이오틱스</th><th>듀오락 골드 캡슐</th></tr></thead>
         <tbody>
           <tr><td class="left">30일 기준 가격</td><td class="algo-col">약 19,030원</td><td>50,000원</td></tr>
@@ -325,8 +363,9 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
+        <colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup>
         <thead><tr><th class="left">성분/항목</th><th class="algo-col">알고케어</th><th>듀오락 골드</th></tr></thead>
         <tbody>
           <tr><td class="left">프로바이오틱스 수</td><td class="algo-col">100억 CFU</td><td>100억 CFU</td></tr>
@@ -342,7 +381,7 @@
 
   <!-- 4. 시너지 마그네슘 -->
   <section class="product" id="magnesium">
-    <h2>4. 알고케어 시너지 마그네슘</h2>
+    <h2><span class="num">04</span>시너지 마그네슘</h2>
     <div class="sub">알고케어 시너지 마그네슘 vs 뉴트리코어 마그네슘</div>
 
     <h3>비교군 · 뉴트리코어 마그네슘</h3>
@@ -367,8 +406,9 @@
     </div>
 
     <h3>가격</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table class="price-table">
+        <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어 시너지 마그네슘</th><th>뉴트리코어 마그네슘</th></tr></thead>
         <tbody>
           <tr><td class="left">30일 기준 가격</td><td class="algo-col">약 12,000원</td><td>35,000원</td></tr>
@@ -379,8 +419,9 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
+        <colgroup><col style="width:20%"><col style="width:46%"><col style="width:34%"></colgroup>
         <thead><tr><th class="left">성분/항목</th><th class="algo-col">알고케어</th><th>뉴트리코어 마그네슘</th></tr></thead>
         <tbody>
           <tr><td class="left">마그네슘 함량</td><td class="algo-col">180 mg(권장) ~ 385.7 mg(최대)</td><td>315 mg</td></tr>
@@ -396,7 +437,7 @@
 
   <!-- 5. 코큐텐 -->
   <section class="product" id="coq10">
-    <h2>5. 알고케어 코큐텐</h2>
+    <h2><span class="num">05</span>코큐텐</h2>
     <div class="sub">알고케어 장용성 코큐텐 vs 뉴트리코어 코엔자임Q10</div>
 
     <h3>비교군 · 뉴트리코어 코엔자임Q10</h3>
@@ -423,8 +464,9 @@
     </div>
 
     <h3>가격</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table class="price-table">
+        <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th class="left">구분</th><th class="algo-col">알고케어 장용성 코큐텐</th><th>뉴트리코어 코엔자임Q10</th></tr></thead>
         <tbody>
           <tr><td class="left">30일 기준 가격</td><td class="algo-col">약 14,800원</td><td>32,500원</td></tr>
@@ -435,9 +477,10 @@
     </div>
 
     <h3>성분 함량 및 원료사 비교표</h3>
-    <div class="table-scroll">
+    <div class="table-wrap">
       <table>
-        <thead><tr><th class="left">성분/항목</th><th class="algo-col">알고케어 권장량</th><th class="algo-col">알고케어 최대량</th><th>뉴트리코어 코엔자임Q10</th></tr></thead>
+        <colgroup><col style="width:18%"><col style="width:24%"><col style="width:24%"><col style="width:34%"></colgroup>
+        <thead><tr><th class="left">성분/항목</th><th class="algo-col">알고 권장량</th><th class="algo-col">알고 최대량</th><th>뉴트리코어 코엔자임Q10</th></tr></thead>
         <tbody>
           <tr><td class="left">코엔자임Q10</td><td class="algo-col">100mg</td><td class="algo-col">300mg</td><td>100mg</td></tr>
           <tr><td class="left">원료사</td><td class="algo-col">CoQ10 98% 규격 / Global Merchant, GMO-Free</td><td class="algo-col">—</td><td>CoQ10 98% 규격 / 원료사 미공개</td></tr>
@@ -453,7 +496,7 @@
 </div>
 
 <footer>
-  알고케어 제품 비교 자료 · 가격 및 성분 정보는 작성 시점 기준이며 변동될 수 있습니다.
+  Algocare Nutrition · 가격 및 성분 정보는 작성 시점 기준이며 변동될 수 있습니다.
 </footer>
 </body>
 </html>
